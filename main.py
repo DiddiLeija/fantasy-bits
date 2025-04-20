@@ -14,8 +14,8 @@ class Main:
         # resource for characters, sprite sounds and mobs
         pyxel.load("resource-characters.pyxres", excl_musics=True, excl_tilemaps=True)
         # world resource and ambient music
-        # pyxel.load("resource-world.pyxres", excl_images=True, excl_sounds=True)
-        # set up variables
+        pyxel.load("resource-world.pyxres", excl_images=True, excl_sounds=True)
+        # set up variables and execute
         self.setup()
         pyxel.run(self.update, self.draw)
 
@@ -27,4 +27,3 @@ class Main:
 
     def draw(self):
         "main draw"
-        
