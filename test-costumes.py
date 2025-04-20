@@ -9,7 +9,7 @@ import pyxel
 
 
 def main():
-    pyxel.init(90, 120, title="[TEST] Fantasy Bits: Costume Test")
+    pyxel.init(90, 180, title="[TEST] Fantasy Bits: Costume Test")
     pyxel.load("resource-characters.pyxres")
     with io.open("resource-characters.json") as rawfile:
         js = json.loads(rawfile.read())
@@ -17,7 +17,9 @@ def main():
     e = len(js["eyes"])
     h = len(js["hair"])
     c = len(js["clothes"])
+    # TODO: add mask combinations?
     posx, posy = 0, 1
+    total = 0
     pyxel.cls(0)
     for bb in range(b):
         for ee in range(e):
@@ -35,7 +37,8 @@ def main():
                     if posx > 10:
                         posx = 0
                         posy += 1
-    pyxel.text(20, 0, "Skin Tests", 7)
+                    total += 1
+    pyxel.text(0, 1, f"Skin combinations: {total}", 7)
 
 
 if __name__ == "__main__":
